@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>計算機</title>
+
+</head>
+<script>
+var sum=0;
+var stroper=0;
+function num(str){
+	if(stroper==null)
+	{
+		document.getElementById("box").value=str;
+		stroper=0;
+		return;
+	}
+	if(document.getElementById("box").value==0)
+	{
+		document.getElementById("box").value=str;
+	}else{
+		document.getElementById("box").value+=str;
+	}
+}
+
+function oper(operand){
+	var input_var=document.getElementById('box');
+	switch(operand){
+		case '+':
+		     input_var.value += '+';
+			 break;
+		case '-':
+		     input_var.value += '-';
+			 break;
+		case '*':
+		     input_var.value += '*';
+			 break;
+	    case '/':
+		     input_var.value += '/';
+			 break;
+	}
+}
+
+function equal(){
+	var input_var=document.getElementById('box');
+	ans=(+eval(input_var.value));
+	document.getElementById('box').value=ans;
+	
+}
+	
+function del(){
+	document.getElementById("box").value=document.getElementById("box").value.substr(0,document.getElementById("box").value.length-1);
+}
+function clearall(){
+	document.getElementById("box").value=0;
+	sum=null;
+	stroper=null;
+}
+</script>
+<body>
+<center>
+<input type="hidden" id="SS"> 
+<table width="180" border="5"align="center">
+  <tr align="center">
+    <td colspan="4"><input align="right" type="text" id="box"  onFocus="blur()" value="0"/></td>
+    </tr>
+  <tr>
+    <td align="center"><input type="button" id="one" value="1" onClick="num('1')" /></td>
+    <td align="center"><input type="button" id="two" value="2"
+    onclick="num('2')" /></td>
+    <td align="center"><input type="button" id="three" value="3" onClick="num('3')" /></td>
+    <td><input type="button" id="add" value="+" onClick="oper('+')" /></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" id="four" value="4" onClick="num('4')" /></td>
+    <td align="center"><input type="button" id="five" value="5" onClick="num('5')" /></td>
+    <td align="center"><input type="button" id="six" value="6" onClick="num('6')" /></td>
+    <td align="center"><input type="button" id="sub" value="-" onClick="oper('-')" /></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" id="seven" value="7" onClick="num('7')" /></td>
+    <td align="center"><input type="button" id="eight" value="8" onClick="num('8')" /></td>
+    <td align="center"><input type="button" id="nine" value="9" onClick="num('9')" /></td>
+    <td align="center"><input type="button" id="mult" value="×" onClick="oper('*')" /></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" id="zero" value="0" onClick="num('0')" /></td>
+    <td align="center"><input type="button" id="del" value="BK" onClick="del()" /></td>
+    <td align="center"><input type="button" id="clearall" value="C" onClick="clearall()" /></td>
+    <td align="center"><input type="button" id="div" value="÷" onClick="oper('/')" /></td>
+  </tr>
+  <tr>
+  <td colspan="3"><input type="button" id="count" value="送出" style="width:180px;" onClick="equal()"  /></td>
+  <td align="center"><input type="button" id="d" value="." onClick="num('.')" /></td>
+  </tr>
+</table>
+
+</center>
+</body>
+</html>

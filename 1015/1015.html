@@ -1,0 +1,38 @@
+<title>加減欄位</title>
+</head>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+function addtextbox(){
+	var countid=document.getElementById("textnum");
+	var countnum=parseInt(countid.value);
+	
+	var box="<input type='text' id='text"+(countnum+1)+"'  name='a[]'/><br/>";
+	
+	$("#form1>input:text:last").each(function() {
+    $(this).next().after($(box));    
+    
+	})
+	countid.value=countnum+1;
+	console.log(countid.value);
+
+}
+function removetextbox(){
+	var countid=document.getElementById("textnum");
+	var countnum=parseInt(countid.value);
+	var deltxt="#text"+countnum;
+	console.log(deltxt);
+	$(deltxt+"+br").remove();
+	$(deltxt).remove();
+	
+	countid.value=countnum-1;
+	console.log(countid.value);
+}
+</script>
+<body>
+<form name="from1" id="form1">
+<input type="hidden" id="textnum" value="1" />
+<input type="text" name="a[]" id="text1" /><br>
+<input type="button" name="addtext" id="addtext" value="新增欄位" onclick="addtextbox()">
+<input type="button" name="removetext" id="removetext" value="刪除欄位" onclick="removetextbox()">
+</body>
+</html>

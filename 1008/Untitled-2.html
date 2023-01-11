@@ -1,0 +1,161 @@
+<title>計算機</title>
+</head>
+<script>
+var a,b,c,d,e,f,g,h,i,j;
+var add,dele,mult,div;
+var a1=0,a2=0;
+
+function tex(){
+	a2=document.getElementById("text").value;
+	end=a1.length;
+	bb=a1.substr(end-1,1);
+	a1=a1.substring(0,end-1);
+	switch(bb)
+	{
+	case "+":
+		sum=Number(a1)+Number(a2);
+		return document.getElementById("text").value=sum;
+		break;
+	case "-":
+		sum=a1-a2;
+		return document.getElementById("text").value=sum;
+		break;
+	case "*":
+		sum=a1*a2;
+		return document.getElementById("text").value=sum;
+		break;
+	case "÷":
+		sum=a1/a2;
+		return document.getElementById("text").value=sum;
+		break;
+	}
+	a1=0;
+	a2=0;
+
+}
+function zero(){
+	document.getElementById("text").value+=document.getElementById("zero").value;
+	return text;
+}
+function one(){
+	document.getElementById("text").value+=document.getElementById("one").value;
+	return text;
+}
+function two(){
+	document.getElementById("text").value+=document.getElementById("two").value;
+	return text;
+}
+function three(){
+	document.getElementById("text").value+=document.getElementById("three").value;
+	return text;
+}
+function four(){
+	document.getElementById("text").value+=document.getElementById("four").value;
+	return text;
+}
+function five(){
+	document.getElementById("text").value+=document.getElementById("five").value;
+	return text;
+}
+function six(){
+	document.getElementById("text").value+=document.getElementById("six").value;
+	return text;
+}
+function seven(){
+	document.getElementById("text").value+=document.getElementById("seven").value;
+	return text;
+}
+function eight(){
+	document.getElementById("text").value+=document.getElementById("eight").value;
+	return text;
+}
+function nine(){
+	document.getElementById("text").value+=document.getElementById("nine").value;
+	return text;
+}
+function c(){
+	document.getElementById("text").value="";
+	return text;
+}
+function bk(){
+	str=document.getElementById("text").value;
+	end=str.length;
+	sstr=str.substring(0,end-1);
+	text=sstr;
+	return document.getElementById("text").value=text;
+}
+function add(){
+	if(a1==0)
+	{
+	document.getElementById("text").value+="+";
+	a1=document.getElementById("text").value;
+	document.getElementById("text").value="";
+	return text;
+	}
+	else
+	{
+		a2=document.getElementById("text").value;
+		document.getElementById("text").value+="+";
+		a1=a1.substring(0,end-1);
+		sum=Number(a1)+Number(a2);
+		a1=sum;
+		a2=0;
+		
+		return document.getElementById("text").value="";
+	}
+	
+}
+function dele(){
+	document.getElementById("text").value+="-";
+	a1=document.getElementById("text").value;
+	document.getElementById("text").value="";
+	return text;
+	
+}
+function mult(){
+	document.getElementById("text").value+="*";
+	a1=document.getElementById("text").value;
+	document.getElementById("text").value="";
+	return text;
+}
+function div(){
+	document.getElementById("text").value+="÷";
+	a1=document.getElementById("text").value;
+	document.getElementById("text").value="";
+	return text;
+}
+</script>
+<body>
+<table align="center" border="3">
+<tr><td colspan="4" width="80" height="30"><input type="text" id="text" onFocus="blur()"></td></tr>
+<tr>
+<td align="center"><input type="button" id="one" onClick="one()" value="1" /></td>
+<td align="center"><input type="button" id="two" onClick="two()" value="2" /></td>
+<td align="center"><input type="button" id="three" onClick="three()" value="3" /></td>
+<td align="center"><input type="button" id="add" onClick="add()" value="+" /></td>
+</tr>
+
+<tr>
+<td align="center"><input type="button" id="four" onClick="four()" value="4" /></td>
+<td align="center"><input type="button" id="five" onClick="five()" value="5" /></td>
+<td align="center"><input type="button" id="six"  onclick="six()" value="6" /></td>
+<td align="center"><input type="button" id="dele" onClick="dele()" value="-" /></td>
+</tr>
+
+<tr>
+<td align="center"><input type="button" id="seven" onClick="seven()" value="7" /></td>
+<td align="center"><input type="button" id="eight" onClick="eight()"  value="8" /></td>
+<td align="center"><input type="button" id="nine" onClick="nine()" value="9" /></td>
+<td  align="center"><input type="button" id="mult" onClick="mult()" value="*" /></td>
+</tr>
+<tr>
+<td align="center"><input type="button" id="zero" onClick="zero()" value="0" /></td>
+<td align="center"><input type="button" id="bk" onClick="bk()" value="BK" /></td>
+<td align="center"><input type="button" id="c" onClick="c()" value="C" /></td>
+<td align="center"><input type="button" id="div" onClick="div()" value="÷" /></td>
+</tr>
+
+<tr><td colspan="4"><input  type="button" value="送出"  onclick="tex()" style="width:140px;height:50p"; /></td></tr>
+</table>
+</body>
+</html>

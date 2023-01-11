@@ -1,0 +1,25 @@
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+</head>
+<script>
+var a=1;
+var text1,text2;
+
+function tex(){
+	text1=document.getElementById("heigh").value;
+	text2=document.getElementById("weigh").value;
+	bmi=(text2/((text1/100)*(text1/100)));
+	alert(bmi);
+}
+</script>
+<body>
+<form>
+<input type="text" id="heigh" />
+<br>
+<input type="text" id="weigh" />
+<input type="button" id="bnt1" value="確定" onclick="tex()" />
+</form>
+</body>
+</html>

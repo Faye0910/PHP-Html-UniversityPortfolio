@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="./jquery.js"></script>
+<title>上傳多張圖片</title>
+<style type="text/css">
+body {
+	background-image: url(upload.jpg);
+}
+</style>
+</head>
+
+<body>
+<div align="center">
+<p style="font-family: '標楷體'; font-size: 36px; color: #5F1E1F;">……歡迎使用圖片上傳小站……
+</p></div>
+<form action="upload.php" method="post" enctype="multipart/form-data" name="uploadForm" id="uploadForm">
+<div align="center">		
+  <span style="font-size: 24px; font-family: '標楷體';">請選擇上傳檔案:</span>
+  </div><br>  
+ <div align="center" id="he">
+   <div>
+      <input name="file1" type="file" id="file1" /><input type="button" name="button2" class="button" value="清除" /><br>
+  </div>
+</div>
+  
+<p>
+  <div align="center">
+    <input name="Submit" type="submit" value="開始上傳"/>
+</div></p>
+	
+	 <div align="center">
+	<span style="font-size: 24px; font-family: '標楷體';">上傳的檔案類型限制為:jpg/png/</span><span style="font-size: 24px; font-family: '標楷體';">bmp</span><br>  
+ <span style="font-size: 24px; font-family: '標楷體';">上傳的檔案大小限制為:3MB</span> 
+  </div>
+</form>
+  <script>
+  $(function(){
+        index = 1
+        file_name = "file" + index
+        setInterval(function(){
+          console.log("hhh")
+            if($("input[type='file']").length==0){
+              current_name = file_name
+            index += 1
+            file_name = "file" + index
+            console.log(file_name)
+            html_str = $('<div><input name='+file_name+''+ ' type="file" id='+file_name+''+' /><input type="button" name="button" class="button" value="清除" /></div>')
+            console.log(html_str)
+            $("#he").append(html_str)
+            $(".button").click(function(){
+            console.log($(this).attr("name"))
+            $(this).parent().remove()})
+            
+            }
+            else if($("input[type='file']").get(-1).files[0]!= undefined){ 
+            current_name = file_name
+            index += 1
+            file_name = "file" + index
+            console.log(file_name)
+            html_str = $('<div><input name='+file_name+''+ ' type="file" id='+file_name+''+' /><input type="button" name="button" class="button" value="清除" /></div>')
+            console.log(html_str)
+            $("#he").append(html_str)
+            $(".button").click(function(){
+            console.log($(this).attr("name"))
+            $(this).parent().remove()
+            })
+          }
+        },1000)
+        $("#button1").click(function(){
+          window.location.reload()
+        })
+  })
+  </script>
+</body>
+</html>
